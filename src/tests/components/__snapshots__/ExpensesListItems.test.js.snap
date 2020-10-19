@@ -11,13 +11,11 @@ exports[`this should render an expense item 1`] = `
       rent
     </h4>
   </Link>
-  <h5>
-    amount: 
-    109500
-  </h5>
-  <h6>
-    date: 
-    -345600000
-  </h6>
+  <p>
+    $1,095.00
+     - 
+    December 28th, 1969
+     
+  </p>
 </div>
 `;
