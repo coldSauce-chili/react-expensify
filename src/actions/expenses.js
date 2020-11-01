@@ -23,7 +23,7 @@ export const startAddExpense = (expenseData) => {
             createdAt
         }
 
-        // this will return a promise
+        // this will return a promise [.then()]
         // to be used by the test cases
         return database.ref('expenses').push(expense).then((ref) => {
             dispatch(addExpense({
@@ -44,3 +44,30 @@ export const editExpense = (id, updates) => ({
     id,
     updates
 })
+
+
+// SET EXPENSES
+export const setExpenses = (expenses) => ({
+    type: 'SET_EXPENSES',
+    expenses
+})
+
+// export const startSetExpenses 
+
+export const startSetExpenses = () => {
+    return (dispatch) => {
+        return database.ref('expenses')
+            .once('value')
+            .then((snapshot) => {
+                const expenses = []
+                snapshot.forEach(childSnapshot => {
+                    expenses.push({
+                        id: childSnapshot.key,
+                        ...childSnapshot.val()
+                    })
+                });
+
+                dispatch(setExpenses(expenses))
+            })
+    }
+}
