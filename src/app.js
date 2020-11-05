@@ -12,6 +12,7 @@ import './styles/styles.scss'
 import 'react-dates/lib/css/_datepicker.css'
 import { firebase } from './firebase/firebase'
 import './playground/promise'
+import './playground/renamingObjectKeys'
 
 
 const store = configureStore()
