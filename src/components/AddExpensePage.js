@@ -13,7 +13,7 @@ export class AddExpensePage extends React.Component {
         return (
 
             <div>
-                <p>this is from my add expense compoent</p>
+                <p>this iz from my add expense compoent</p>
                 <ExpenseForm
                     onSubmit={this.onSubmit}
                 />
