@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import AppRouter, { history } from './routers/AppRouter'
 import configureStore from './store/configureStore'
+import LoadingPage from './components/LoadingPage'
 import { startSetExpenses } from './actions/expenses'
 import { setTextFilter } from './actions/filters'
 import getVisibleExpenses from './selectors/expenses'
@@ -32,7 +33,7 @@ const jsx = (
     </Provider>
 )
 
-ReactDOM.render(<p>loadding...</p>, document.getElementById('app'))
+ReactDOM.render(<LoadingPage />, document.getElementById('app'))
 
 let hasRendered = false
 const renderApp = () => {
@@ -53,7 +54,6 @@ firebase.auth().onAuthStateChanged((user) => {
             }
         })
         console.log('log in')
-
     } else {
         store.dispatch(logout())
         renderApp()

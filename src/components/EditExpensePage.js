@@ -19,17 +19,29 @@ export class EditExpensePage extends React.Component {
     render() {
         return (
             <div>
-                editing the expens with the ID of {this.props.match.params.id}
-                <ExpenseForm
-                    expense={this.props.expense}
+                <div className='page-header'>
+                    <div className='content-container'>
+                        <h1 className='page-header__title'>editing the expens with the ID of {this.props.match.params.id}</h1>
+                    </div>
+                </div>
 
-                    onSubmit={(expense) => {
-                        this.onEditExpense(this.props.expense.id, expense)
-                    }}
-                />
-                <button onClick={() => { this.onRemoveExpense(this.props.expense) }}>
-                    remove
-            </button>
+                <div className='content-container'>
+                    <ExpenseForm
+                        expense={this.props.expense}
+
+                        onSubmit={(expense) => {
+                            this.onEditExpense(this.props.expense.id, expense)
+                        }}
+                    />
+                    <button className='button button--secondary'
+                        onClick={() => {
+                            this.onRemoveExpense(this.props.expense)
+                        }}>
+                        remove
+                    </button>
+
+                </div>
+
 
             </div>
         )
